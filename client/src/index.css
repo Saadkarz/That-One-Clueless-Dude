@@ -1,0 +1,232 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0; 
+  padding: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #fff;
+}
+
+.app { 
+  max-width: 900px; 
+  margin: 0 auto; 
+  padding: 20px;
+}
+
+.app h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 30px;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  letter-spacing: 2px;
+  animation: fadeInDown 0.6s ease;
+}
+
+.panel { 
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  color: #333;
+  animation: fadeInUp 0.5s ease;
+}
+
+.panel h3 {
+  color: #667eea;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.players { 
+  display: flex; 
+  gap: 12px; 
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.player { 
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-width: 120px;
+  text-align: center;
+}
+
+.player:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.hint-list { 
+  list-style: none; 
+  padding: 0;
+  margin: 20px 0;
+}
+
+.hint-list li {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 15px 20px;
+  margin: 10px 0;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: slideIn 0.3s ease;
+}
+
+.btn { 
+  padding: 12px 24px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin: 5px;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+input, select {
+  padding: 12px 16px;
+  border: 2px solid #667eea;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin: 5px;
+  transition: all 0.3s;
+  background: #fff;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #764ba2;
+  box-shadow: 0 0 12px rgba(102, 126, 234, 0.3);
+}
+
+.color-picker {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.color-option {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 3px solid transparent;
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+}
+
+.color-option.selected {
+  border: 3px solid #333;
+  transform: scale(1.15);
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.role-display {
+  text-align: center;
+  padding: 30px;
+  margin: 20px 0;
+  border-radius: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  animation: pulse 2s infinite;
+}
+
+.role-imposter {
+  background: linear-gradient(135deg, #ff6b6b 0%, #c92a2a 100%);
+  color: #fff;
+}
+
+.role-informed {
+  background: linear-gradient(135deg, #51cf66 0%, #2f9e44 100%);
+  color: #fff;
+}
+
+.timer {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #667eea;
+  margin: 20px 0;
+  animation: pulse 1s infinite;
+}
+
+.voting-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.vote-card {
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: #f8f9fa;
+  border: 3px solid transparent;
+}
+
+.vote-card:hover:not(.disabled) {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.vote-card.selected {
+  border: 3px solid #333;
+  transform: scale(1.05);
+}
+
+.vote-card.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
